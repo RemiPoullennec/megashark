@@ -39,6 +39,10 @@ class CreateShowtimes extends AbstractMigration
             'default' => null,
             'null' => false,
         ]);
+        $table->addColum('date_de_sortie','datetime',[   
+            'default'=> null,
+            'null' => false,
+        ]);
         $table->create();
     }
 }
