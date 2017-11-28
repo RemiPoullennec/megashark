@@ -12,10 +12,10 @@ class AddDateDeSortieToCreateMovie extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('create_movie');
-        $table->addColumn('data', 'string', [
+        $table = $this->table('movies');
+        $table->addColumn('release_date', 'datetime', [
             'default' => null,
-            'limit' => 255,
+      
             'null' => false,
         ]);
         $table->update();
