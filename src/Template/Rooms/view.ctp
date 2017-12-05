@@ -1,57 +1,47 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Movie $movie
+ * @var \App\Model\Entity\Room $room
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Movie'), ['action' => 'edit', $movie->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Movie'), ['action' => 'delete', $movie->id], ['confirm' => __('Are you sure you want to delete # {0}?', $movie->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Movies'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Movie'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Edit Room'), ['action' => 'edit', $room->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Room'), ['action' => 'delete', $room->id], ['confirm' => __('Are you sure you want to delete # {0}?', $room->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List Rooms'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Room'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Showtimes'), ['controller' => 'Showtimes', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Showtime'), ['controller' => 'Showtimes', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="movies view large-9 medium-8 columns content">
-    <h3><?= h($movie->name) ?></h3>
+<div class="rooms view large-9 medium-8 columns content">
+    <h3><?= h($room->name) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($movie->name) ?></td>
+            <td><?= h($room->name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($movie->id) ?></td>
+            <td><?= $this->Number->format($room->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Duration') ?></th>
-            <td><?= $this->Number->format($movie->duration) ?></td>
+            <th scope="row"><?= __('Capacity') ?></th>
+            <td><?= $this->Number->format($room->capacity) ?></td>
         </tr>
-          
-        <tr>
-            <th scope="row"><?= __('Realease Date') ?></th>
-            <td><?= h($movie->realease_date) ?></td>
-        </tr>
-        
         <tr>
             <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($movie->created) ?></td>
+            <td><?= h($room->created) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($movie->modified) ?></td>
+            <td><?= h($room->modified) ?></td>
         </tr>
     </table>
-    <div class="row">
-        <h4><?= __('Description') ?></h4>
-        <?= $this->Text->autoParagraph(h($movie->description)); ?>
-    </div>
     <div class="related">
         <h4><?= __('Related Showtimes') ?></h4>
-        <?php if (!empty($movie->showtimes)): ?>
+        <?php if (!empty($room->showtimes)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
@@ -63,7 +53,7 @@
                 <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($movie->showtimes as $showtimes): ?>
+            <?php foreach ($room->showtimes as $showtimes): ?>
             <tr>
                 <td><?= h($showtimes->id) ?></td>
                 <td><?= h($showtimes->movie_id) ?></td>
