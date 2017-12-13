@@ -38,6 +38,14 @@ class RoomsController extends AppController
         $room = $this->Rooms->get($id, [
             'contain' => ['Showtimes']
         ]);
+        
+        
+        //https://book.cakephp.org/3.0/fr/orm/query-builder.html
+        
+        
+        
+        
+        
 
         $this->set('room', $room);
         $this->set('_serialize', ['room']);
